@@ -3,10 +3,10 @@ body {
     padding: 0;
 }
 
-body * {
+/* body * {
     font-family: Arial, Helvetica, sans-serif;
 
-}
+} */
 
 p#id-selector-1 {
     background-color: red;
@@ -401,6 +401,8 @@ button#edit-profile {
     float: right;
     margin-top: 30px;
     margin-right: 200px;
+    border: 1px solid #dedede;
+    border-radius: 0;
 }
 
 ul#course-modules{
@@ -427,4 +429,41 @@ button#home-page-buttons{
 
 i#green-tick{
     color: green;
+}
+
+button#course-status-buttons{
+    text-align: left;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    width: 255px;
+}
+
+button#assignment-page-buttons{
+    border: 1px solid #dedede;
+    border-radius: 0;
+    float: right;
+}
+
+ul#assignment-modules{
+    text-decoration: none;
+    list-style: none;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+a#assignment-title{
+    text-decoration: none;
+    list-style: none;
+    color: black;
+    font-size: 1.5em;
+    justify-content: center;
+    margin-left: 5px;
+
+}
+
+li#assignment-items{
+    border-left: 3px solid #a10000;
 }
