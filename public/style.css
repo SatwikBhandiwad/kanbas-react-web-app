@@ -467,3 +467,7 @@ a#assignment-title{
 li#assignment-items{
     border-left: 3px solid #a10000;
 }
+
+.table-responsive tr th, .table-responsive tr td{
+    text-align: center;
+}
