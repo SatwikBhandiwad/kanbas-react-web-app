@@ -1,0 +1,9 @@
+
+.wd-flex-grow-1 {
+    flex-grow: 1;
+}
+
+.wd-home-page-buttons{
+    border: 1px solid #dedede;
+    border-radius: 0;
+}
