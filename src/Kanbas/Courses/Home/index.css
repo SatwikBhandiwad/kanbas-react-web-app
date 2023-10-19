@@ -1,0 +1,12 @@
+.btn.wd-home-page-buttons{
+    border: 1px solid #dedede;
+    border-radius: 0;
+}
+
+
+.btn.btn-light.wd-home-page-buttons-side{
+    text-align: left;
+    border: 1px solid #dedede;
+    border-radius: 0;
+    width: 255px;
+}
