@@ -3,7 +3,18 @@
     flex-grow: 1;
 }
 
-.wd-home-page-buttons{
+.btn.wd-home-page-buttons{
     border: 1px solid #dedede;
     border-radius: 0;
+}
+
+.wd-module-items{
+    font-weight: 650;
+    border-radius: 0;
+    border: 1px solid #dedede;
+}
+
+.wd-module-icons{
+    float: right;
+    margin-right: 8px;
 }
