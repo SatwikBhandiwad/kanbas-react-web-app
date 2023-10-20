@@ -6,6 +6,8 @@ import { FaGlasses } from "react-icons/fa";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
 import Home from "./Home";
+import Assignments from "./Assignments";
+import AssignmentEditor from "./Assignments/AssignmentEditor";
 
 function Courses() {
     const { courseId } = useParams();
@@ -14,13 +16,13 @@ function Courses() {
         <div>
             <div style={{ display: "flex", margin: 15 }}>
                 <FaBars className="course-menu-icon" style={{ fontSize: 25, marginRight: 20 }} />
-                <nav style={{ "--bs-breadcrumb-divider": "''", marginRight: 1200 }} aria-label="breadcrumb">
+                <nav style={{ "--bs-breadcrumb-divider": "''" }} aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item active" aria-current="page" style={{ "color": "red" }}>{course.number}</li>
                         <li className="breadcrumb-item active" aria-current="page" style={{ "color": "red" }}>{course.name}</li>
                     </ol>
                 </nav>
-                <button id="home-page-buttons" className="btn btn-light" onclick="location.href = '#'">
+                <button className="btn btn-light wd-home-page-buttons" onclick="location.href = '#'">
                     <FaGlasses className="fas fa-glasses" style={{ marginRight: 10 }} />
                     Student View
                 </button>
@@ -39,10 +41,10 @@ function Courses() {
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home />} />
                         <Route path="Modules" element={<Modules/>} />
-                        <Route path="Assignments" element={<h1>Assignments</h1>} />
+                        <Route path="Assignments" element={<Assignments/>} />
                         <Route
                             path="Assignments/:assignmentId"
-                            element={<h1>Assignment Editor</h1>}
+                            element={<AssignmentEditor/>}
                         />
                         <Route path="Grades" element={<h1>Grades</h1>} />
                     </Routes>
