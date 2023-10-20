@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
-import { FaEllipsisV, FaPlus, FaCheckCircle } from "react-icons/fa";
+import { FaEllipsisV, FaPlus, FaCheckCircle, FaGripVertical } from "react-icons/fa";
 import "./index.css";
 
 function ModuleList() {
@@ -39,16 +39,18 @@ function ModuleList() {
             .map((module, index) => (
               <React.Fragment key={index}>
                 <li className="list-group-item list-group-item-secondary wd-module-items">
+                  <FaGripVertical className="me-2" />
                   {module.name}
-                  
-                  <FaEllipsisV className="icon fa-ellipsis-v wd-module-icons"/>
+
+                  <FaEllipsisV className="icon fa-ellipsis-v wd-module-icons" />
                   <FaPlus className="fas fa-plus wd-module-icons" />
-                  <FaCheckCircle className="far fa-check-circle wd-module-icons" style={{color: "green"}} />
+                  <FaCheckCircle className="far fa-check-circle wd-module-icons" style={{ color: "green" }} />
                 </li>
                 <li className="list-group-item wd-module-items" style={{ borderRadius: 0 }}>
+                  <FaGripVertical className="me-2" />
                   {module.description}
-                  <FaEllipsisV className="icon fa-ellipsis-v wd-module-icons"/>    
-                  <FaCheckCircle className="far fa-check-circle wd-module-icons" style={{color: "green"}} />
+                  <FaEllipsisV className="icon fa-ellipsis-v wd-module-icons" />
+                  <FaCheckCircle className="far fa-check-circle wd-module-icons" style={{ color: "green" }} />
                 </li>
                 <br />
                 <br />

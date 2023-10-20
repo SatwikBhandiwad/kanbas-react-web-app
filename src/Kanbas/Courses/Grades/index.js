@@ -40,7 +40,7 @@ function Grades() {
             <br />
             <div className="table-responsive">
 
-                <table className="table">
+                <table className="table table-striped table-bordered align-middle">
                     <thead>
                         <th>Student Name</th>
                         {assignments.map((assignment) => (<th>{assignment.title}</th>))}
