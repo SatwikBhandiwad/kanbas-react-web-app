@@ -58,7 +58,10 @@ function AssignmentEditor() {
                     </label>
                 </div>
                 <div class=" col-4">
-                    <input type="number" min="0" max="100" step="1" class="form-control" id="points" value={assignment.points} />
+                    <input type="text" class="form-control" id="points" 
+                    onChange={(e) =>
+                        dispatch(setAssignment({ ...assignment, points: e.target.value }))}
+                    value={assignment.points} />
                 </div>
             </div>
 
