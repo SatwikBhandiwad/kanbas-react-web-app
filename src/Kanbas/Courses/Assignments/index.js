@@ -19,7 +19,10 @@ function Assignments() {
         (assignment) => assignment.course === courseId);
 
     const displayEditor = () => {
-        dispatch(setAssignment(assignment))
+        dispatch(setAssignment(
+            { title: "New Assignment", description: "New Assignment Description", 
+            course: courseId, dueDate: '2023-09-18', availableFrom: '2023-09-17', availableUntil: '2023-09-19' }))
+        // dispatch(setAssignment(assignment))
         navigate(`/Kanbas/Courses/${courseId}/Assignments/createAssignment`)
     };
 

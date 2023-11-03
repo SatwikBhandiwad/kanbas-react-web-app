@@ -16,6 +16,7 @@ function AssignmentEditor() {
     const navigate = useNavigate();
     const handleSave = () => {
         if (assignmentId === "createAssignment") {
+            dispatch(setAssignment(assignment))
             dispatch(addAssignment(assignment));
         }
         else {
