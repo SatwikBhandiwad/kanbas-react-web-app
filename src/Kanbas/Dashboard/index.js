@@ -8,18 +8,20 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
     deleteCourse, updateCourse }
 ) {
 
-
     return (
         <div>
             <h1>Dashboard</h1>
-            <h5>Course</h5>
-            <input value={course.name} className="form-control mb-3 w-20"
+            <hr />
+            <h2>Published Courses ({courses.length})</h2>
+            <br/>
+            <h4>Add/Update Course</h4>
+            <input value={course.name} className="form-control mb-3" style={{width: '30%'}}
                 onChange={(e) => setCourse({ ...course, name: e.target.value })} />
-            <input value={course.number} className="form-control mb-3"
+            <input value={course.number} className="form-control mb-3" style={{width: '30%'}}
                 onChange={(e) => setCourse({ ...course, number: e.target.value })} />
-            <input value={course.startDate} className="form-control mb-3" type="date"
+            <input value={course.startDate} className="form-control mb-3" type="date" style={{width: '30%'}}
                 onChange={(e) => setCourse({ ...course, startDate: e.target.value })} />
-            <input value={course.endDate} className="form-control" type="date"
+            <input value={course.endDate} className="form-control" type="date" style={{width: '30%'}}
                 onChange={(e) => setCourse({ ...course, endDate: e.target.value })} />
             <button onClick={addNewCourse} className="btn btn-success mt-3">
                 Add
@@ -28,11 +30,6 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
             <button onClick={updateCourse} className="btn btn-primary ms-3 mt-3" >
                 Update
             </button>
-
-
-
-            <hr />
-            <h2>Published Courses ({courses.length})</h2>
             <div class="row">
                 {courses.map((course, index) => (
                     <div className="card col-3" style={{ width: 260, margin: 30, padding: 0 }}>
