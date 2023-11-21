@@ -9,10 +9,26 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Grades from "./Grades";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Courses({ courses }) {
     const { courseId } = useParams();
-    const course = courses.find((course) => course._id === courseId);
+    const API_BASE = process.env.REACT_APP_API_BASE;
+    const URL = `${API_BASE}/api/courses`;
+    
+    const [course, setCourse] = useState({});
+    const findCourseById = async (courseId) => {
+        const response = await axios.get(
+            `${URL}/${courseId}`
+        );
+        setCourse(response.data);
+    };
+    useEffect(() => {
+        findCourseById(courseId);
+    }, [courseId]);
+
+
     return (
         <div>
             <div style={{ display: "flex", margin: 15 }}>
@@ -23,7 +39,7 @@ function Courses({ courses }) {
                         <li className="breadcrumb-item active" aria-current="page" style={{ "color": "red" }}>{course.name}</li>
                     </ol>
                 </nav>
-                <button className="btn btn-light wd-home-page-buttons me-5" style={{float: "right", marginLeft: "auto"}} onclick="location.href = '#'">
+                <button className="btn btn-light wd-home-page-buttons me-5" style={{ float: "right", marginLeft: "auto" }} onclick="location.href = '#'">
                     <FaGlasses className="fas fa-glasses" style={{ marginRight: 10 }} />
                     Student View
                 </button>
@@ -41,13 +57,13 @@ function Courses({ courses }) {
                     <Routes>
                         <Route path="/" element={<Navigate to="Home" />} />
                         <Route path="Home" element={<Home />} />
-                        <Route path="Modules" element={<Modules/>} />
-                        <Route path="Assignments" element={<Assignments/>} />
+                        <Route path="Modules" element={<Modules />} />
+                        <Route path="Assignments" element={<Assignments />} />
                         <Route
                             path="Assignments/:assignmentId"
-                            element={<AssignmentEditor/>}
+                            element={<AssignmentEditor />}
                         />
-                        <Route path="Grades" element={<Grades/>} />
+                        <Route path="Grades" element={<Grades />} />
                     </Routes>
                 </div>
             </div>

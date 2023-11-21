@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database";
 import { FaEllipsisV, FaPlus, FaCheckCircle, FaGripVertical } from "react-icons/fa";
@@ -9,11 +9,39 @@ import {
   deleteModule,
   updateModule,
   setModule,
+  setModules,
 } from "./modulesReducer";
+import { findModulesForCourse, createModule, removeModule, modifyModule} from "./client";
 
 
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    removeModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+
+  const handleUpdateModule = async () => {
+    const status = await modifyModule(module);
+    dispatch(updateModule(module));
+  };
+
+
+
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
@@ -60,12 +88,12 @@ function ModuleList() {
           />
           <br />
           <button className="btn btn-success wd-home-page-buttons mb-4 me-3" style={{ "width": 60 }}
-            onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+            onClick={handleAddModule}>
             Add
           </button>
 
           <button className="btn btn-primary wd-home-page-buttons mb-4" style={{ "width": 80 }}
-            onClick={() => dispatch(updateModule(module))}>
+            onClick={handleUpdateModule}>
             Update
           </button>
         </div>
@@ -95,7 +123,7 @@ function ModuleList() {
 
                   <button
                     className="btn btn-danger float-end me-4 wd-home-page-buttons"
-                    onClick={() => dispatch(deleteModule(module._id))}>
+                    onClick={() => handleDeleteModule(module._id)}>
                     Delete
                   </button>
 
