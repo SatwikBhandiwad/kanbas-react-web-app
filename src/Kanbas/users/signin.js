@@ -23,7 +23,7 @@ function Signin() {
       <input id="username" className="form-control" style={{width: 300}} value={credentials.username} onChange={(e) => setCredentials({...credentials, username: e.target.value})}/>
       <br/>
       <label for="password"> Password:</label>
-      <input type="hidden" id="password" className="form-control" style={{width:300}} value={credentials.password} onChange={(e) => setCredentials({...credentials, password: e.target.value})}/>
+      <input type="password" id="password" className="form-control" style={{width:300}} value={credentials.password} onChange={(e) => setCredentials({...credentials, password: e.target.value})}/>
       <br/>
       <button className="btn btn-success" onClick={signin}> Signin </button>
       {errorMsg?<h6>{errorMsg}</h6>:""}
